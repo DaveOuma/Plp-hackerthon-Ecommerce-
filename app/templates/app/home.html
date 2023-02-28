@@ -1,0 +1,164 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner-slider %}
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/b1.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/b2.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/b3.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/b4.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+    </div>
+</div>
+{% endblock banner-slider %}
+
+{% block information %}
+
+<div class="container">
+    <div class="row bg-primary text-center p-5 text-white border-bottom shadow">
+        <h1>Products</h1>
+        <small class="fs-5">At PLPOnlineStore, 
+            we offer a wide range of high-quality dairy products that are sure to delight your taste buds. 
+            Whether you're in the mood for something sweet or savory, we have something for everyone.
+
+            Our ice-creams are a crowd favorite, 
+            made with the freshest ingredients and available in a variety of flavors to suit any palate.
+            Indulge in our creamy, rich ice-creams that will leave you wanting more.
+            
+            If you're a cheese lover, you'll love our selection of artisanal cheeses.
+            From sharp cheddar to creamy brie, we have a cheese to suit any occasion. 
+            Our cheeses are perfect for snacking, adding to a charcuterie board, 
+            or using in your favorite recipes.
+            
+            Paneer, a fresh cheese commonly used in Indian cuisine, is a staple in our dairy section. 
+            Our paneer is made with fresh, high-quality milk and has a rich, 
+            creamy texture that makes it perfect for curries and other savory dishes.
+            
+            For those looking for a healthier alternative, our ghee is a great option. 
+            Made from clarified butter, our ghee has a rich, 
+            nutty flavor and is perfect for cooking or adding to your morning cup of coffee.
+            
+            If you're looking for a refreshing drink, try our lassi. 
+            Made with fresh yogurt, 
+            our lassi is available in a variety of flavors 
+            and is the perfect way to cool down on a hot day.
+            
+            Our milkshakes are a delicious treat, 
+            made with real ice-cream and blended to perfection. 
+            With flavors like chocolate, vanilla, 
+            and strawberry, our milkshakes are sure to satisfy your sweet tooth.
+            
+            Curd, also known as yogurt, is a healthy 
+            and delicious option that can be enjoyed on its own or used in a variety of recipes. 
+            Our curd is made with fresh milk and has a smooth, 
+            creamy texture that makes it perfect for adding to smoothies 
+            or using as a base for dips and sauces.
+            
+            Finally, our milk is the foundation for all of our dairy products. 
+            Made with fresh, high-quality milk, our milk is rich and creamy 
+            and perfect for adding to your morning cereal or enjoying on its own. 
+            At PLPOnlineStore, we take pride in offering only the freshest, 
+            highest-quality dairy products for our customers to enjoy. </small>
+    </div>
+</div>
+{% endblock information %}
+
+{% block main-content %}
+    <div class="container">
+          <h2 class="text-center">Dairy Products</h2>
+        <br/><br/>
+        <div class="row container">
+            <div class="col-md-4 col-sm-4 mi -go wow fadeInUp" data-wow-duration="1s"
+            data-wow-delay="0.6s" style="animation-duration: 1s; animation-duration: 0.6s;
+            animation-name: none;">
+                <div class="goodnesssec buttermilk smbg">
+                  <a href=" {% url 'category' 'GH' %}">
+                    <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/buffalo-ghee.png' %}"
+                      class="img-responsive center-block" alt="">
+                      <p class="mlkpro">Ghee</p>
+                    </div>              
+                  </a>
+                </div>
+              </div>
+                <div class="col-md-4 col-sm-4 mi -go wow fadeInUp" data-wow-duration="1s"
+            data-wow-delay="0.6s" style="animation-duration: 1s; animation-duration: 0.6s;
+            animation-name: none;">
+                <div class="goodnesssec buttermilk curdbgpro">
+                  <a href="{% url 'category' 'CR' %}">
+                    <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/curd-total.png' %}"
+                      class="img-responsive center-block" alt="">
+                      <p class="mlkpro">Curd</p>
+                    </div>              
+                  </a>
+                </div>
+              </div>
+        <div class="col-md-4 col-sm-4 mi -go wow fadeInUp" data-wow-duration="1s"
+            data-wow-delay="0.6s" style="animation-duration: 1s; animation-duration: 0.6s;
+            animation-name: none;">
+            <div class="goodnesssec buttermilk buttermilk">
+                  <a href="{% url 'category' 'IC' %}">
+                    <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/kulfi.png' %}"
+                      class="img-responsive center-block" alt="">
+                      <p class="mlkpro">Ice Creams</p>
+                    </div>              
+                  </a>
+                </div>
+            </div>
+      </div>
+      <br/><br/>
+      <div class="row container">
+        <div class="col-md-4 col-sm-4 mi -go wow fadeInUp" data-wow-duration="1s"
+        data-wow-delay="0.6s" style="animation-duration: 1s; animation-duration: 0.6s;
+        animation-name: none;">
+            <div class="goodnesssec buttermilk smbg">
+              <a href="{% url 'category' 'MS' %}">
+                <div class="goodnessseccont text-center">
+                  <img src="{% static 'app/images/product/milk-shake-chocolate.png' %}"
+                  class="img-responsive center-block" alt="">
+                  <p class="mlkpro">MilKShake</p>
+                </div>              
+              </a>
+            </div>
+          </div>
+            <div class="col-md-4 col-sm-4 mi -go wow fadeInUp" data-wow-duration="1s"
+        data-wow-delay="0.6s" style="animation-duration: 1s; animation-duration: 0.6s;
+        animation-name: none;">
+            <div class="goodnesssec buttermilk curdbgpro">
+              <a href="{% url 'category' 'ML' %}">
+                <div class="goodnessseccont text-center">
+                  <img src="{% static 'app/images/product/cow-milk.png' %}"
+                  class="img-responsive center-block" alt="">
+                  <p class="mlkpro">Milk</p>
+                </div>              
+              </a>
+            </div>
+          </div>
+    <div class="col-md-4 col-sm-4 mi -go wow fadeInUp" data-wow-duration="1s"
+        data-wow-delay="0.6s" style="animation-duration: 1s; animation-duration: 0.6s;
+        animation-name: none;">
+        <div class="goodnesssec buttermilk buttermilk">
+              <a href="{% url 'category' 'IC' %}">
+                <div class="goodnessseccont text-center">
+                  <img src="{% static 'app/images/product/icbars.png' %}"
+                  class="img-responsive center-block" alt="">
+                  <p class="mlkpro">Icebar</p>
+                </div>              
+              </a>
+            </div>
+        </div>
+  </div>
+  </div>
+    <br/><br/>
+{% endblock main-content %}

@@ -1,0 +1,54 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Category{% endblock title %}
+{% block banner-slider %}
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/b1.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/b2.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/b3.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/b4.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+    </div>
+</div>
+{% endblock banner-slider %}
+{% block main-content %}
+<div class="container mt-3">
+    <br>
+    <h2 class="text-center">About Us</h2>
+    <div class="row container">
+        <p class="fs-4 text-center">
+            Welcome to PLPOnlineStore, a premier online retailer of high-quality dairy products. 
+            Our company was founded in 2023 with the mission of providing customers with the freshest, most delicious dairy products available.
+            At PLPOnlineStore, we understand the importance of high-quality ingredients in creating exceptional products. 
+            That's why we work with only the best suppliers and use the freshest milk to produce our wide range of dairy products. 
+            From ice-creams to curd, every product we offer is made with care and attention to detail.
+            Our team is dedicated to providing excellent customer service and ensuring that your shopping experience with us is always a positive one.
+        </p>
+    </div>
+    <br><br>
+    
+    <h2 class="text-center">Mission</h2>
+    <div class="row container">
+        <p class="fs-4 text-center">
+            Our mission at PLPOnlineStore is to provide our customers with the freshest, highest-quality dairy products available. 
+            We are committed to sourcing only the best ingredients and using traditional techniques to create products that are delicious and nutritious.
+            We believe that everyone should have access to healthy, wholesome food, and we are dedicated to making that a reality for our customers. 
+            Whether you're looking for a sweet treat or a savory snack, we have something for everyone in our wide selection of dairy products.
+            At PLPOnlineStore, we strive to be more than just an online retailer - we want to be a trusted partner in your journey to health and wellness. 
+            We are constantly exploring new ways to innovate and improve our products and services to better meet the needs of our customers.
+            Above all, our goal is to provide exceptional customer service and create a positive shopping experience for everyone who visits our site. 
+            We are passionate about what we do and committed to delivering the best possible products and service to our valued customers.
+        </p>
+    </div>
+</div>
+<br><br>
+{% endblock main-content %}
+

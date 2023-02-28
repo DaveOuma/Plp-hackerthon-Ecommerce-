@@ -1,0 +1,106 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Checkout{% endblock title %}
+{% block main-content %}
+<div class="container">
+    {% if messages %}
+      {% for msg in messages %}
+      <div class="alert alert-danger" role="alert">
+        {{msg}}
+      </div>        
+      {% endfor %}
+    {% endif %}
+    <div class="row mt-5">
+        <div class="col-sm-6">
+            <h4>Order Summary</h4>
+            <hr>
+            {% for item in cart_items %}
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5>Product: {{item.product.title}}</h5>
+                    <p>Quantity: {{item.quantity}}</p>
+                    <p class="fw-bold">Price: {{item.product.discounted_price}}</p>
+                </div>
+            </div>              
+            {% endfor %}
+            <p class="fw-bold">Total Cost + KShs. 50 = {{totalamount}}</p>
+            <small>
+                <emp> Terms and Conditions Apply</emp>
+                <br>Introduction<br>
+                Welcome to our website, where we offer high-quality dairy products for sale. By using our website, you agree to be bound by the following terms and conditions, which govern your use of our website and any purchases you make from us.
+                
+                <br>Order Acceptance Policy<br>
+                Your receipt of an electronic or other form of order confirmation does not signify our acceptance of your order, nor does it constitute confirmation of our offer to sell. We reserve the right at any time after receipt of your order to accept, decline, or limit your order for any reason, whether or not your credit card has been charged. If your credit card has been charged and your order is canceled, we will immediately issue a refund to your credit card account.
+                
+                <br>Pricing and Payment<br>
+                All prices are listed in Kenyan Shillings (KShs) and are subject to change without notice. Payment for your order can be made by credit card, debit card, or any other payment method that we may make available to you from time to time. We reserve the right to refuse or cancel any order at any time for any reason.
+                
+                <br> Shipping and Delivery<br>
+                We will make every effort to ship your order within the estimated delivery time frame provided to you at the time of purchase. Delivery times are estimates only and we will not be liable for any delays. You will be responsible for paying all shipping and handling charges, which will be added to your order total.
+                
+                <br>Product Warranty<br>
+                All products sold through our website are warranted solely by the manufacturer or supplier of those products in accordance with their terms and conditions. We make no representations or warranties of any kind, express or implied, as to the products sold through our website.
+                
+                <br>Returns and Refunds<br>
+                We want you to be completely satisfied with your purchase. If for any reason you are not satisfied, you may return the item within 7 days of receipt for a full refund. Please note that we do not accept returns for products that have been opened or used, and you will be responsible for all shipping costs associated with the return.
+                
+                <br> Limitation of Liability<br>
+                In no event shall we be liable for any direct, indirect, punitive, incidental, special, or consequential damages arising out of or in any way connected with the use of our website or the purchase of any products through our website.
+                
+                <br>Governing Law and Jurisdiction<br>
+                These terms and conditions shall be governed by and construed in accordance with the laws of Kenya. Any disputes arising out of or in connection with these terms and conditions shall be submitted to the exclusive jurisdiction of the Kenyan courts.
+                
+                <br>Changes to Terms and Conditions<br>
+                We reserve the right to modify these terms and conditions at any time without prior notice. Your continued use of our website following any such modification constitutes your agreement to be bound by the modified terms and conditions.
+                
+                <br>Contact Us<br>
+                If you have any questions or concerns regarding these terms and conditions or our website, please contact us at [davidomuga@gmail.com].
+            </small>
+        </div>
+        <div class="col-sm-4 offset-sm-1">
+            <h4>Select Shipping Address</h4>
+            <hr>
+            <form method="post" id="myform">
+                {% csrf_token %}
+                {% for ad in add %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5>{{ad.name}}</h5>
+                        <p>Mobile: {{ad.mobile}}</p>
+                        <p>{{ad.locality}} {{ad.city}} {{ad.county}} {{ad.zipcode}}</p>
+                    </div>
+                </div>
+                  <div class="form-check mt-2 mb-5">
+                    <input class="form-check-input" type="radio" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}">
+                    <label class="form-check-label fw-bold" for="custadd{{forloop.counter}}"> Address:{{forloop.counter}} </label>
+                  </div>
+                {% endfor %}
+                <div class="form-check mb-3">
+                    <label for="totamount" class="form-label">Total Amount</label>
+                    <input type="number" class="form-control" name="totamount" value={{totalamount}} readonly>
+                </div>
+                <div class="text-end">
+                    <!-- <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Continue</button> -->
+
+                    <!-- <div id="paypal-button-container"></div>-->
+                    <button id="mpsp-button1" type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Payment</button> 
+                    {% block content %}
+                    <h1>Checkout</h1>
+                    <form id="payment-form">
+                      {% csrf_token %}
+                      <label for="phone-number">Phone Number:</label>
+                      <input type="text" id="phone-number" name="phone-number"><br><br>
+                      <label for="amount">Amount:</label>
+                      <input type="text" id="amount" name="amount"><br><br>
+                      <button type="submit">Pay Now</button>
+                    </form>
+                    <div id="payment-response"></div>
+                  {% endblock %}  
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}
+
+
